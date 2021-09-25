@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Змейка</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/png" sizes="16x16" href="snake5.png" />
+	<link rel="stylesheet" href="gameStyle.css">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi, initial-scale=1"> 
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no, maximum-scale=1.0">
+	
+
+</head>
+<body>
+	
+				
+	<div class="game">
+		<div class="all">
+			
+			<div id = "gameover">
+				<div class = "gameoverimage">
+					<img src="GameOver2.png" type= "image/png">
+				</div>
+				<div class= "data">
+					<input type="text" id="Name">
+					<input type="button" id="SavePlayer" value="Записать" onclick="save()">
+					<input type="button" id="Cancel" value="Отмена" onclick="cancel()">
+
+				</div>
+			</div>	
+			
+		    <div class="footer">
+	
+	            <h1>Змейка</h1>
+		    </div>
+
+	        <div class= 'content'> 
+                <div class='menu'>
+	
+	                
+	                <input type="button" id="reset" value="Начать сначала" onclick="reset()"> 
+	                <input type="button" id= "records" value="Рекорды" onclick="records()"> 
+	            </div>
+				<div id="tablrec">
+					<div id="Loading" class="ui-progressbar ui-widget ui-ui-widget-content ui-corner-all" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+						<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="display: block; width: 10%;"></div>
+
+					</div>
+
+					<div id="ScoreList">
+
+						<b font style="vertical-align: inherit">Андрей: 56
+						</b>
+						<br>
+						<b font style="vertical-align: inherit">Миша: 63
+						</b>
+						<br>
+						<b font style="vertical-align: inherit">Ваня: 17
+						</b>
+						<br>
+						<b font style="vertical-align: inherit">Костя: 22
+						</b>
+						<br>
+						<b font style="vertical-align: inherit">Валя: 38
+						</b>
+						<br>
+						<b font style="vertical-align: inherit">Катя: 45
+						</b>
+						<br>
+						<input type="button" id="Cancel" value="Закрыть" onclick="closeRecords()">
+					</div> 
+				</div> 
+		   
+     	    </div>
+			<div class="canvas">
+	            <canvas id="game" width="700" height="700" >
+		
+	            </canvas>
+            </div>
+            
+
+	    </div>
+    </div>
+	<audio preload> 
+		<source src="apple1.mp3">
+		<source src="gameover1.mp3">
+		<source src="wall.mp3">
+	</audio>
+    </body>
+
+    <script src="game.js"></script>
+	<script src="ajax.js"></script>
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css" />
+</html>
