@@ -109,7 +109,7 @@ function drawGame() {
   snake.unshift(newHead);
 }
 
-let game = setInterval(drawGame,350);
+let game = setInterval(drawGame,100);
 
 function playSound(soundName) {
 	let audio = new Audio(); 
