@@ -11,7 +11,7 @@ foodImg.src = "apple24.png";
 
 let box = 25;
 
-let score = 0;
+var score = 0;
 
 let food = {  
   x: Math.floor((Math.random() * 26)) * box,
@@ -109,7 +109,7 @@ function drawGame() {
   snake.unshift(newHead);
 }
 
-let game = setInterval(drawGame,100);
+let game = setInterval(drawGame,350);
 
 function playSound(soundName) {
 	let audio = new Audio(); 
@@ -126,11 +126,7 @@ function records() {
 
 }
 
-function Save(){
-  
-  document.getElementById('gameover').style.display = 'none';
-	//RefreshSCRs();
-}
+
 
 function closeRecords() {
   document.getElementById('tablrec').style.display = 'none';
@@ -180,3 +176,103 @@ function gameOver() {
 
 window.onload = function () { 
   confirm("Перезагрузить страницу?\nВозможно, внесённые данные не сохранятся.");}
+
+
+
+
+
+var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+var data; // элемент массива - {name:'Иванов',score:'18'};
+var updatePassword;
+var stringName='PSHENICHNAYA_RECORDS';
+
+// показывает все сообщения из messages на страницу
+function showdata() {
+    var str='';
+    for ( var m=0; m<data.length; m++ ) {
+        var datas=data[m];
+        str+="<b>"+escapeHTML(datas.name)+":</b> "
+            +escapeHTML(datas.score)+"<br />";
+    }
+    document.getElementById('ScoreList').innerHTML=str;
+}
+
+function escapeHTML(text) {
+    if ( !text )
+        return text;
+    text=text.toString()
+        .split("&").join("&amp;")
+        .split("<").join("&lt;")
+        .split(">").join("&gt;")
+        .split('"').join("&quot;")
+        .split("'").join("&#039;");
+    return text;
+}
+
+// получает сообщения с сервера и потом показывает
+
+
+
+
+// получает сообщения с сервера, добавляет новое,
+// показывает и сохраняет на сервере
+function save() {
+    updatePassword=Math.random();
+    $.ajax( {
+            url : ajaxHandlerScript,
+            type : 'POST', dataType:'json',
+            data : { f : 'LOCKGET', n : stringName,
+                p : updatePassword },
+            cache : false,
+            success : lockGetReady,
+            error : errorHandler
+        }
+    );
+}
+
+// сообщения получены, добавляет, показывает, сохраняет
+function lockGetReady(callresult) {
+    if ( callresult.error!=undefined )
+        alert(callresult.error);
+    else {
+        data=[];
+        if ( callresult.result!="" ) { // либо строка пустая - сообщений нет
+            // либо в строке - JSON-представление массива сообщений
+            data=JSON.parse(callresult.result);
+            // вдруг кто-то сохранил мусор вместо LOKTEV_CHAT_MESSAGES?
+            if ( !Array.isArray(data) )
+                data=[];
+        }
+
+        var senderName=document.getElementById('Name').value;
+        
+        data.push( { name:senderName, score:score } );
+        if ( data.length>10 )
+            data=data.slice(data.length-10);
+
+        showdata();
+
+        $.ajax( {
+                url : ajaxHandlerScript,
+                type : 'POST', dataType:'json',
+                data : { f : 'UPDATE', n : stringName,
+                    v : JSON.stringify(data), p : updatePassword },
+                cache : false,
+                success : updateReady,
+                error : errorHandler
+            }
+        );
+    }
+}
+
+// сообщения вместе с новым сохранены на сервере
+function updateReady(callresult) {
+    if ( callresult.error!=undefined )
+        alert(callresult.error);
+}
+
+function errorHandler(jqXHR,statusStr,errorStr) {
+    alert(statusStr+' '+errorStr);
+}
+
+
