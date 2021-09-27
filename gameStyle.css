@@ -166,4 +166,13 @@ opacity: 90%;}
 
 #tablrec b{font-size: 44px;}
 
+
+#ScoreList{margin-top: 20px;}
+#ScoreList b{margin-top: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold; 
+  font-size: 12px;
+}
+
 #ScoreList input:hover {background: rgb(47, 206, 81);}
+
