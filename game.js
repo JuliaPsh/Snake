@@ -123,13 +123,14 @@ function cancel() {
 
 function records() {
 	document.getElementById('tablrec').style.display = 'block';
-
+  
 }
 
 
 
 function closeRecords() {
   document.getElementById('tablrec').style.display = 'none';
+document.getElementById('gameover').style.display = 'none';
 }
 
 function reset() {
@@ -151,7 +152,7 @@ function reset() {
 
 function gameOver() {
   document.getElementById('gameover').style.display = 'inline';
-  document.getElementById('gameover').style.animation= '5s infinite';
+  
   playSound('gameover1.mp3');
   window.navigator.vibrate(200); 
   
