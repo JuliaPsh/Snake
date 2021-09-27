@@ -73,6 +73,7 @@ h1{font-family: 'Comic Sans MS', 'Times New Roman', Times,  cursive;
   box-shadow: 1px rgb(3, 53, 28);
 }
 
+
 #records{
   width: 40%;
   padding:10px 0;
@@ -98,9 +99,9 @@ h1{font-family: 'Comic Sans MS', 'Times New Roman', Times,  cursive;
   background: linear-gradient(45deg, rgb(62, 222, 186), rgb(107, 182, 82) 79%);
   display: none;
   position: absolute;
-  left: 20%;
-  top: 50px;
-  right: 20%;
+  left: 25%;
+  top: 40px;
+  right: 25%;
   border-radius: 10px;
   text-align: center;
   z-index: 11;
@@ -131,7 +132,7 @@ h1{font-family: 'Comic Sans MS', 'Times New Roman', Times,  cursive;
 opacity: 90%;}
 
 #SavePlayer{
-  width: 25%;
+  width: 20%;
   padding:10px 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold; 
@@ -139,7 +140,14 @@ opacity: 90%;}
   border-radius: 10px}
 
 #Cancel{
-  width: 25%;
+  width: 20%;
+  padding:10px 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold; 
+  font-size: 14px;
+  border-radius: 10px;
+}
+#Records{ width: 20%;
   padding:10px 0;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold; 
@@ -147,20 +155,19 @@ opacity: 90%;}
   border-radius: 10px;
 }
 
-
 #tablrec{
   background-color: rgb(255, 255, 255);
  text-align: center;
-    height: 40%;
-    width: 50%;
-    opacity: 95%;
-    z-index: 10;
-    border-radius: 10px;
-    display: none;
-    margin-left: auto;
-    position: absolute;
-    margin-right: auto;
-    left: 25%;
+  height: 40%;
+  width: 50%;
+  opacity: 95%;
+  z-index: 12;
+  border-radius: 10px;
+  display: none;
+  margin-left: auto;
+  position: absolute;
+  margin-right: auto;
+  left: 25%;
     top: 35%;
 }
 
