@@ -3,7 +3,6 @@
 <head>
 	<title>Змейка</title>
 	<meta charset="UTF-8">
-	<link rel="shortcut icon" type="image/png" sizes="16x16" href="snake5.png" />
 	<link rel="stylesheet" href="gameStyle.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi, initial-scale=1"> 
@@ -24,7 +23,7 @@
 				<div class= "data">
 					<input type="text" id="Name">
 					<input type="button" id="SavePlayer" value="Записать" onclick="save()">
-					<input type="button" id="Cancel" value="Отмена" onclick="cancel()">
+					<input type="button" id="Cancel" value="Назад" onclick="cancel()">
 
 				</div>
 			</div>	
@@ -37,39 +36,19 @@
 	        <div class= 'content'> 
                 <div class='menu'>
 	
-	                
 	                <input type="button" id="reset" value="Начать сначала" onclick="reset()"> 
-	                <input type="button" id= "records" value="Рекорды" onclick="records()"> 
-	            </div>
-				<div id="tablrec">
-					<div id="Loading" class="ui-progressbar ui-widget ui-ui-widget-content ui-corner-all" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
-						<div class="ui-progressbar-value ui-widget-header ui-corner-left" style="display: block; width: 10%;"></div>
-
-					</div>
-
-					<div id="ScoreList">
-
-						<b font style="vertical-align: inherit">Андрей: 56
-						</b>
-						<br>
-						<b font style="vertical-align: inherit">Миша: 63
-						</b>
-						<br>
-						<b font style="vertical-align: inherit">Ваня: 17
-						</b>
-						<br>
-						<b font style="vertical-align: inherit">Костя: 22
-						</b>
-						<br>
-						<b font style="vertical-align: inherit">Валя: 38
-						</b>
-						<br>
-						<b font style="vertical-align: inherit">Катя: 45
-						</b>
-						<br>
+	                <input type="button" id= "records" value="Рекорды" onclick="records()">
+					
+					
+					<div id="tablrec">
+					    <div id="ScoreList">
+						    
+							<input type='button' value='освежить' onclick='refreshMessages()' style='overflow-x: hidden'>
+					    </div> 
 						<input type="button" id="Cancel" value="Закрыть" onclick="closeRecords()">
-					</div> 
-				</div> 
+				   </div> 
+	            </div>
+				
 		   
      	    </div>
 			<div class="canvas">
@@ -89,5 +68,7 @@
     </body>
 
     <script src="game.js"></script>
-	<script src="ajax.js"></script>
+	
+	<script src="http://fe.it-academy.by/JQ/jquery.js"></script>
+	
 </html>
